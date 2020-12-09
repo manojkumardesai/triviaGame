@@ -1,5 +1,3 @@
-import { StringLiteral } from "typescript";
-
 export type Question = {
     category: string;
     correct_answer: string;

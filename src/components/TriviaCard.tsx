@@ -1,10 +1,11 @@
 import React from 'react';
+import { AnswerObject } from '../services/QUIZ_API';
 
 type CardProps = {
     question: string;
     answers: string[];
-    callback: any;
-    userAnswer: any;
+    callback: (event: React.MouseEvent<HTMLButtonElement>) => void;
+    userAnswer: AnswerObject | undefined;
     questionNumber: number;
     totalQuestions: number;
 }
@@ -25,7 +26,7 @@ const TriviaCard : React.FC<CardProps> = ({
         <div>
             {answers.map((answer) => (
                 <div key={answer}>
-                    <button disabled={userAnswer} onClick={callback}>
+                    <button disabled={userAnswer ? true : false} value={answer} onClick={callback}>
                         <span dangerouslySetInnerHTML={{ __html: answer}} />
                     </button>
                 </div>
