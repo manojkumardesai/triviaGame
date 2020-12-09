@@ -6,6 +6,9 @@ import { fetchTriviaQuestions, Difficulty, QuizType, QuestionExtended, AnswerObj
 // Components
 import TriviaCard from './components/TriviaCard';
 
+// Styles
+import { GlobalStyle, Wrapper } from './styles/App.styles';
+
 const TOTAL_QUESTIONS = 10;
 
 const App = () => {
@@ -66,7 +69,9 @@ const App = () => {
   }
 
   return (
-    <div className="App">
+    <>
+    <GlobalStyle />
+    <Wrapper>
       <h1>Trivia Game</h1>
       {
         gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
@@ -93,7 +98,8 @@ const App = () => {
         </button>
         ) : null 
       }
-    </div>
+    </Wrapper>
+    </>
   );
 }
 
