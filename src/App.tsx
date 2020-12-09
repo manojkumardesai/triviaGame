@@ -31,7 +31,7 @@ const App = () => {
     const newQuestions = await fetchTriviaQuestions(
       TOTAL_QUESTIONS,
       Difficulty.EASY,
-      QuizType.MULTIPLE_CHOICE
+      QuizType.TRUE_FALSE
     );
 
     setQuestions(newQuestions);
