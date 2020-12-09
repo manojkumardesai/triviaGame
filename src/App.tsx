@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 
 // API
-import { fetchTriviaQuestions, Difficulty, QuizType, QuestionExtended, AnswerObject } from './services/QUIZ_API';
+import { fetchTriviaQuestions, Difficulty, QuizType } from './services/QUIZ_API';
+
+// Types
+import { QuestionExtended, AnswerObject } from './services/TriviaTypes';
 
 // Components
-import TriviaCard from './components/TriviaCard';
+import TriviaCard from './components/trivia/TriviaCard';
 
 // Styles
 import { GlobalStyle, Wrapper } from './styles/App.styles';

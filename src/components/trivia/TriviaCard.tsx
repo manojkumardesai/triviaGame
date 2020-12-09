@@ -1,5 +1,5 @@
 import React from 'react';
-import { AnswerObject } from '../services/QUIZ_API';
+import { AnswerObject } from '../../services/TriviaTypes';
 
 // styles 
 import { Wrapper, ButtonWrapper } from './TriviaCard.styles';
