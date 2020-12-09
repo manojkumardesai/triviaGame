@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 // API
 import { fetchTriviaQuestions, Difficulty, QuizType } from './services/QUIZ_API';
@@ -7,7 +8,9 @@ import { fetchTriviaQuestions, Difficulty, QuizType } from './services/QUIZ_API'
 import { QuestionExtended, AnswerObject } from './services/TriviaTypes';
 
 // Components
+import Intro from './components/intro/Intro';
 import TriviaCard from './components/trivia/TriviaCard';
+import ResultsPage from './components/results/ResultsPage';
 
 // Styles
 import { GlobalStyle, Wrapper } from './styles/App.styles';
@@ -22,7 +25,9 @@ const App = () => {
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(true);
 
-  console.log(questions);
+  useEffect(() => {
+    console.log('This will be modified to support routing');
+  }, [loading, questions, number, userAnswers, score, gameOver]);
 
   const startTrivia = async () => {
     setLoading(true);
@@ -76,11 +81,16 @@ const App = () => {
     <GlobalStyle />
     <Wrapper>
       <h1>Trivia Game</h1>
+      <Router>
+        <Switch>
+          <Route path="/" exact component={Intro} />
+          <Route path="/game" component={TriviaCard} />
+          <Route path="/result" component={ResultsPage} />
+        </Switch>
+      </Router>
       {
         gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
-        <button className="start" onClick={startTrivia}>
-          Start Game
-        </button>
+        <Intro startTrivia={startTrivia} />
         ) : null
       }
       { !gameOver ? <p className="score">Score: {score} </p> : null }
