@@ -83,7 +83,15 @@ const App = () => {
         </button>
         ) : null
       }
-      { !gameOver ? <p className="score">Score: {score} </p> : null }
+      { !gameOver ? 
+        <div>
+          { questions[number] ?
+            <h3 className="category"> {questions[number].category} </h3>
+            : null
+          }
+          <p className="score">Score: {score} </p>
+        </div>
+      : null }
       { loading && <p>Loading Questions...</p> }
       { !loading && !gameOver && (
         <TriviaCard 

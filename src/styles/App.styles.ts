@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import gameBG from '../images/gameBG.jpg';
+import gameBG from '../images/gameBGSnow.jpg';
 
 export const GlobalStyle = createGlobalStyle`
   html {
@@ -27,6 +27,11 @@ export const Wrapper = styled.div`
     color: #fff;
   }
   .score {
+    color: #fff;
+    font-size: 2rem;
+    margin: 0;
+  }
+  .category {
     color: #fff;
     font-size: 2rem;
     margin: 0;
